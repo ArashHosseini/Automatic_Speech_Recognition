@@ -30,8 +30,9 @@ from functools import wraps
 
 import numpy as np
 import tensorflow as tf
+from tensorflow.contrib import rnn 
 from tensorflow.contrib.rnn.python.ops import rnn_cell
-from tensorflow.contrib.rnn.python.ops import core_rnn_cell_impl
+#from tensorflow.contrib.rnn.python.ops import core_rnn_cell_impl
 from tensorflow.python.ops.rnn import bidirectional_dynamic_rnn
 
 from utils.utils import load_batched_data
@@ -104,7 +105,7 @@ class DBiRNN(object):
             elif args.rnncell == 'gru':
                 self.cell_fn = tf.contrib.rnn.GRUCell
             elif args.rnncell == 'lstm':
-                self.cell_fn = core_rnn_cell_impl.BasicLSTMCell
+                self.cell_fn = rnn.BasicLSTMCell
             else:
                 raise Exception("rnncell type not supported: {}".format(args.rnncell))
 

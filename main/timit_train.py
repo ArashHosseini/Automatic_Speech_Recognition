@@ -22,7 +22,9 @@ from functools import wraps
 import numpy as np
 import tensorflow as tf
 from tensorflow.python.ops import ctc_ops as ctc
-from tensorflow.contrib.rnn.python.ops.core_rnn import static_bidirectional_rnn
+from tensorflow.contrib.rnn import static_bidirectional_rnn
+from tensorflow.python.platform import flags
+from tensorflow.python.platform import app
 
 from utils.utils import load_batched_data
 from utils.utils import describe
@@ -41,8 +43,6 @@ from utils.functionDictUtils import activation_functions_dict
 from utils.functionDictUtils import optimizer_functions_dict
 
 
-from tensorflow.python.platform import flags
-from tensorflow.python.platform import app
     
 flags.DEFINE_string('task', 'timit', 'set task name of this program')
 flags.DEFINE_string('mode', 'train', 'set whether to train or test')

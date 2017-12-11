@@ -32,9 +32,11 @@ def check_path_exists(path):
     if isinstance(path, list):
         for p in path:
             if not os.path.exists(p):
+		print p
                 os.makedirs(p)
     else:
         if not os.path.exists(path):
+	    print p
             os.makedirs(path)
 
 class dotdict(dict):
